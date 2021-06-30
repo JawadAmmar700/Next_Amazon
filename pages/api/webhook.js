@@ -44,6 +44,7 @@ export default async (req, res) => {
     }
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object
+
       var mailOptions = {
         from: 'tomyself6@gmail.com',
         to: session.metadata.email,
@@ -66,11 +67,8 @@ export default async (req, res) => {
           transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
               console.log(error)
-            } else {
-              console.log('Email sent: ' + info.response)
             }
           })
-          console.log('worked', session.id)
         })
     }
   }

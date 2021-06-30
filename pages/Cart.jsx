@@ -20,13 +20,12 @@ const Cart = () => {
     totalPrice =
       parseInt(totalPrice) + parseInt(basket[i].price) * basket[i].quantity
   }
-  console.log(basket)
   const handleDelete = item => {
     dispatch(REMOVE_ITEM(item))
   }
 
   const handlePay = async () => {
-    const response = await axios.post('http://localhost:3000/api/Stripe', {
+    const response = await axios.post(`/api/Stripe`, {
       items: basket,
       email: session.user.email,
     })

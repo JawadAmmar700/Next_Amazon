@@ -1,13 +1,14 @@
-import firebase from "firebase"
+import firebase from 'firebase'
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBSEEdz64JnvqODZtWVbEYOvOy-n6L-IVw",
-  authDomain: "next-c5f69.firebaseapp.com",
-  projectId: "next-c5f69",
-  storageBucket: "next-c5f69.appspot.com",
-  messagingSenderId: "336388356994",
-  appId: "1:336388356994:web:226c672623a4745ac1ad9b",
-  measurementId: "G-0RC5RPMXL0",
+  apiKey: 'AIzaSyBIsWcXk8imAJFM0P55F5CRGlytJpSmueI',
+  authDomain: 'nextportfolio-b7556.firebaseapp.com',
+  projectId: 'nextportfolio-b7556',
+  storageBucket: 'nextportfolio-b7556.appspot.com',
+  messagingSenderId: '223127938382',
+  appId: '1:223127938382:web:3dfcec5ba653b9d6772a1f',
+  measurementId: 'G-ZFVFLVE5B2',
 }
 
 const app = !firebase.apps.length
