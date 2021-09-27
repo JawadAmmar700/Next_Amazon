@@ -23,7 +23,7 @@ const app = !admin.apps.length
     })
   : admin.app()
 
-const endpointSecret = "whsec_3CSdUuFvnEmzUGcad8Fc224zg7NaKYxh"
+const endpointSecret = process.env.WEBHOOK_ID
 
 export default async (req, res) => {
   if (req.method === "POST") {
