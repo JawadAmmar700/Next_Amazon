@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { selectBasket, REMOVE_ITEM } from '../redux/features/BasketSlice'
-import { useSelector, useDispatch } from 'react-redux'
-import Image from 'next/image'
-import Product from '../components/BasketProduct'
-import { loadStripe } from '@stripe/stripe-js'
-import axios from 'axios'
-import { useSession } from 'next-auth/client'
-import { motion, AnimatePresence } from 'framer-motion'
-const promise = loadStripe(
-  'pk_test_51ICWPNGmEcEmaWVS0lJzvO7M8jrKAeHkSroAyzFNS1USzBtWxtFeGYKJC0GpIWXMmVVeBGNEfI0nAgCes30OcLav0004kbtrco'
-)
+import React, { useState, useEffect } from "react"
+import { selectBasket, REMOVE_ITEM } from "../redux/features/BasketSlice"
+import { useSelector, useDispatch } from "react-redux"
+import Image from "next/image"
+import Product from "../components/BasketProduct"
+import { loadStripe } from "@stripe/stripe-js"
+import axios from "axios"
+import { useSession } from "next-auth/client"
+import { motion, AnimatePresence } from "framer-motion"
+const promise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUPLIC_ID)
 
 const Cart = () => {
   const basket = useSelector(selectBasket).slice().reverse()
@@ -60,7 +58,7 @@ const Cart = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ type: 'spring', stiffness: 100, delay: id / 3 }}
+                transition={{ type: "spring", stiffness: 100, delay: id / 3 }}
                 exit={{ opacity: 0 }}
               >
                 <Product key={id} item={item} click={handleDelete} />
@@ -78,8 +76,8 @@ const Cart = () => {
           disabled={!session?.user || basket.length === 0 ? true : false}
           className={`w-4/5 h-8 ${
             !session?.user || basket.length === 0
-              ? 'bg-gradient-to-b from-gray-300 to-gray-500 cursor-not-allowed'
-              : 'bg-gradient-to-b from-yellow-300 to-yellow-500  hover:opacity-90 cursor-pointer'
+              ? "bg-gradient-to-b from-gray-300 to-gray-500 cursor-not-allowed"
+              : "bg-gradient-to-b from-yellow-300 to-yellow-500  hover:opacity-90 cursor-pointer"
           }   rounded mt-4   `}
         >
           Proceed to CheckOut

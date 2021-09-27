@@ -1,8 +1,6 @@
 import { buffer } from "micro"
 import * as admin from "firebase-admin"
-const stripe = require("stripe")(
-  "sk_test_51ICWPNGmEcEmaWVSFdgi4JgqcN3s0YOZRB0QBdvgsGPpfveFdV9VFnK7xdfg6clhE2zV8om1W8pWdA8Cvi2sAXUG00sCUdE9sb"
-)
+const stripe = require("stripe")(process.env.STRIPE_ID)
 
 var nodemailer = require("nodemailer")
 
@@ -71,6 +69,7 @@ export default async (req, res) => {
           })
         })
     }
+    res.status(200).end()
   }
 }
 
